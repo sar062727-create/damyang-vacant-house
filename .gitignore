@@ -1,0 +1,12 @@
+# 프론트엔드 (React/Vite) 관련
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# 파이썬 관련
+__pycache__/
+*.pyc
+
+# OS/편집기 관련
+.DS_Store
+.vscode/

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>damyang-app</title>
+    <!--
+      카카오맵 JavaScript SDK 로드.
+      아래 YOUR_JAVASCRIPT_KEY 부분을, 카카오 개발자 콘솔의
+      "플랫폼 키 > JavaScript 키"에서 복사한 값으로 바꿔주세요.
+      (REST API 키와는 다른 키입니다.)
+    -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8293d96a372e32cf81f03ce4912df5bf&autoload=false"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
