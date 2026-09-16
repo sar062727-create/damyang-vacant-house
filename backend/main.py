@@ -54,27 +54,27 @@ def root():
 
 
 @app.get("/houses", response_class=UTF8JSONResponse)
-def get_houses(읍면: str | None = None, 추천용도: str | None = None):
+def get_houses(읍면: str | None = None, 용도: str | None = None):
     """빈집 목록을 반환한다.
     - 읍면 파라미터를 주면 해당 읍면만 필터링 (예: /houses?읍면=담양읍)
-    - 추천용도 파라미터를 주면 해당 용도만 필터링 (예: /houses?추천용도=주거)
+    - 용도 파라미터를 주면 해당 용도가 1위인 빈집만 필터링 (예: /houses?용도=주거)
     - 둘 다 안 주면 전체 405건을 반환
     """
     houses = load_houses()
 
     if 읍면:
         houses = [h for h in houses if h.get("읍면") == 읍면]
-    if 추천용도:
-        houses = [h for h in houses if h.get("추천용도") == 추천용도]
+    if 용도:
+        houses = [h for h in houses if h.get("1위용도") == 용도]
 
     return {"count": len(houses), "houses": houses}
 
 
 @app.get("/houses/summary", response_class=UTF8JSONResponse)
 def get_summary():
-    """읍면별, 용도별 요약 통계."""
+    """읍면별, 1위 용도별 요약 통계."""
     df = pd.read_csv(CSV_PATH, encoding="utf-8-sig")
-    by_usage = df["추천용도"].value_counts().to_dict()
+    by_usage = df["1위용도"].value_counts().to_dict()
     by_eupmyeon = df["읍면"].value_counts().to_dict()
     return {
         "전체건수": len(df),

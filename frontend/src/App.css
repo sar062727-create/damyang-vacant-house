@@ -9,7 +9,7 @@ body {
 }
 
 .app {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -23,13 +23,14 @@ h1 {
 .subtitle {
   color: #6b7a70;
   margin-bottom: 1.25rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .filters {
   display: flex;
   gap: 8px;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .filters button {
@@ -39,7 +40,7 @@ h1 {
   background: white;
   color: #444;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 
 .filters button.active {
@@ -56,22 +57,6 @@ h1 {
   height: 520px;
 }
 
-.legend {
-  display: flex;
-  gap: 16px;
-  margin-top: 12px;
-  font-size: 0.85rem;
-  color: #444;
-}
-
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 6px;
-}
-
 .status-message {
   padding: 3rem 1rem;
   text-align: center;
@@ -81,4 +66,214 @@ h1 {
 
 .status-message.error {
   color: #a32d2d;
+}
+
+/* ---- 의사결정 카드 ---- */
+
+.card-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.decision-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.25rem;
+  max-width: 420px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.card-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.card-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-right: 20px;
+}
+
+.card-photo-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #f0f2ec;
+  color: #999;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-address {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 2px;
+  color: #1f3b2c;
+}
+
+.card-sub {
+  font-size: 12px;
+  color: #6b7a70;
+  margin: 0;
+}
+
+.card-section-title {
+  font-size: 12.5px;
+  color: #6b7a70;
+  font-weight: 600;
+  margin: 14px 0 6px;
+}
+
+.usage-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.usage-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin-bottom: 3px;
+  color: #444;
+}
+
+.usage-bar-label.top {
+  color: #2c5f2d;
+  font-weight: 600;
+}
+
+.usage-bar-track {
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.usage-bar-fill {
+  height: 100%;
+  background: #bbb;
+}
+
+.usage-bar-fill.top {
+  background: #2c5f2d;
+}
+
+.reason-banner {
+  background: #eaf2e6;
+  color: #2c5f2d;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.stat-box {
+  background: #f7f8f4;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.stat-label {
+  font-size: 10.5px;
+  color: #999;
+  margin: 0 0 2px;
+}
+
+.stat-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  color: #1f3b2c;
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: #999;
+  font-weight: 400;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+.tag-attraction {
+  background: #fbe9e2;
+  color: #b8552f;
+}
+
+.tag-muted {
+  background: #f0f2ec;
+  color: #999;
+}
+
+.mini-map {
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+  border: 1px solid #e0e5db;
+  background: #eee;
+}
+
+.mini-map-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: #666;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.dot-red { background: #D33; }
+.dot-orange { background: #D85A30; }
+.dot-blue { background: #378ADD; }
+
+.card-footer {
+  border-top: 1px solid #eee;
+  margin-top: 14px;
+  padding-top: 10px;
+  font-size: 11.5px;
+  color: #888;
 }
